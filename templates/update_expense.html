@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="static/css/bootstrap.min.css" />
     <!-- https://getbootstrap.com/ -->
     <link rel="stylesheet" href="static/css/templatemo-style.css">
+    <link rel="icon" type="image/png" href="static/img/favicon.ico">
     <!--
 	Product Admin CSS Template
 	https://templatemo.com/tm-524-product-admin
@@ -87,17 +88,26 @@
                 <h2 class="tm-block-title d-inline-block">Update Expense</h2>
               </div>
             </div>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-danger" role="alert">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
             <div class="row tm-edit-product-row">
               <div class="col-xl-6 col-lg-6 col-md-12">
-                <form action="" class="tm-edit-product-form">
+                <form action="{{url_for('update_expense')}}" method="post" class="tm-edit-product-form">
                   <div class="form-group mb-3">
                     <label
-                      for="name"
-                      >Person Name
+                      for="email"
+                      >Person Email
                     </label>
                     <input
-                      id="name"
-                      name="name"
+                      id="email"
+                      name="email"
                       type="text"
                       class="form-control validate"
                       required
@@ -125,9 +135,10 @@
                     <select
                       class="custom-select tm-select-accounts"
                       id="paid"
+                      name="paid"
                     >
-                      <option selected value="1">I Paid</option>
-                      <option value="2">Person Paid</option>
+                      <option selected value="They Owe">I Paid</option>
+                      <option value="I Owe">Person Paid</option>
                     </select>
                   </div>
                   <div class="form-group mb-3">
@@ -138,6 +149,7 @@
                     <textarea
                       class="form-control validate"
                       rows="3"
+                      name="description"
                       required
                     ></textarea>
                   </div>
@@ -149,12 +161,13 @@
                     <select
                       class="custom-select tm-select-accounts"
                       id="category"
+                      name="category"
                     >
                       <option selected>Select category</option>
-                      <option value="1">Food</option>
-                      <option value="2">Transport</option>
-                      <option value="3">Entertainment</option>
-                      <option value="4">Other</option>
+                      <option value="Food">Food</option>
+                      <option value="Transport">Transport</option>
+                      <option value="Entertainment">Entertainment</option>
+                      <option value="Other">Other</option>
                     </select>
                   </div>
 

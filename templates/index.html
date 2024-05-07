@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Split Ease</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+    <link rel="icon" type="image/png" href="static/img/favicon.ico">
     <!-- https://fonts.google.com/specimen/Roboto -->
     <link rel="stylesheet" href="static/css/fontawesome.min.css">
     <!-- https://fontawesome.com/ -->
@@ -85,29 +86,19 @@
                     <div class="tm-bg-primary-dark tm-block tm-block-taller">
                         <h2 class="tm-block-title">Project Description</h2>
                         <p class="text-white">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet facilisis urna.
-                            Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae,
-                            ultricies congue gravida diam non fringilla. Nunc quis felis at nunc vehicula sollicitudin
-                            ut id dolor. Ut et magna libero. Vivamus dictum semper libero, id molestie ipsum volutpat
-                            quis. Suspendisse auctor rutrum turpis, sed sollicitudin sapien consequat vel. Fusce iaculis
-                            nisl at ipsum consequat, sed commodo purus eleifend.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet facilisis urna.
-                            Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae,
-                            ultricies congue gravida diam non fringilla. Nunc quis felis at nunc vehicula sollicitudin
-                            ut id dolor. Ut et magna libero. Vivamus dictum semper libero, id molestie ipsum volutpat
-                            quis. Suspendisse auctor rutrum turpis, sed sollicitudin sapien consequat vel. Fusce iaculis
-                            nisl at ipsum consequat, sed commodo purus eleifend. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet facilisis urna.
-                            Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae,
-                            ultricies congue gravida diam non fringilla. Nunc quis felis at nunc vehicula sollicitudin
-                            ut id dolor. Ut et magna libero. Vivamus dictum semper libero, id molestie ipsum volutpat
-                            quis. Suspendisse auctor rutrum turpis, sed sollicitudin sapien consequat vel. Fusce iaculis
-                            nisl at ipsum consequat, sed commodo purus eleifend.
+
+Split Ease is a revolutionary solution aimed at simplifying the intricate world of group finances. Recognizing the complexities and potential pitfalls inherent in managing shared expenses, Split Ease endeavors to transform this daunting task into a seamless, stress-free experience. At its core, Split Ease is driven by a profound mission: to foster transparency, efficiency, and harmony within groups by offering a user-friendly platform for expense tracking and settlement.
+
+<br><br>Split Ease revolutionizes the way groups handle finances by offering a streamlined approach to expense management. With its intuitive interface, users can effortlessly record expenses, track payments, and determine outstanding balances. Manual calculations become a relic of the past, replaced by a system that saves time and effort for all involved parties.
+
+<br><br>Transparency lies at the heart of Split Ease. Through its comprehensive features, the platform provides a crystal-clear overview of all financial transactions, balances, and settlements. This transparency ensures that every member remains fully informed about their financial commitments and contributions, thereby nurturing trust and accountability within the group. Misunderstandings and disputes over shared expenses can strain relationships and undermine group cohesion. Split Ease acts as a preemptive measure against such conflicts by accurately calculating balances and offering a convenient settlement feature.
                         </p>
                     </div>
                 </div>
             </div>
 
             <div class="row tm-content-row">
-                <div class="col-12 tm-block-col">
+                <!-- <div class="col-12 tm-block-col">
                     <div class="tm-bg-primary-dark tm-block tm-block-taller tm-block-overflow">
                         <h2 class="tm-block-title">Notification List</h2>
                         <div class="tm-notification-items">
@@ -167,14 +158,14 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="col-12 tm-block-col">
                     <div class="tm-bg-primary-dark tm-block tm-block-taller tm-block-scroll">
                         <h2 class="tm-block-title">Transaction History</h2>
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">NAME</th>
+                                    <th scope="col">EMAIL</th>
                                     <th scope="col">CATEGORY</th>
                                     <th scope="col">AMOUNT</th>
                                     <th scope="col">CURRENCY</th>
@@ -183,103 +174,16 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                {% for trans in transactions %}
                                 <tr>
-                                    <th scope="row"><b>Robert</b></th>
-                                    <td>Food</td>
-                                    <td>150</td>
-                                    <td>AED</td>
-                                    <td>Robert</td>
-                                    <td>12:00, 10 NOV 2018</td>
+                                    <th scope="row"><b>{{ trans.email }}</b></th>
+                                    <td>{{ trans.category }}</td>
+                                    <td>{{ trans.amount }}</td>
+                                    <td>USD ($)</td>
+                                    <td>{{ trans.sentBy }}</td>
+                                    <td>{{ trans.transactiondate }}</td>
                                 </tr>
-                                <tr>
-                                    <th scope="row"><b>George</b></th>
-                                    <td>Transport</td>
-                                    <td>35</td>
-                                    <td>AED</td>
-                                    <td>George</td>
-                                    <td>14:00, 10 NOV 2018</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"><b>Jessica</b></th>
-                                    <td>Food</td>
-                                    <td>650</td>
-                                    <td>AED</td>
-                                    <td>Jessica</td>
-                                    <td>15:00, 10 NOV 2018</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"><b>Robert</b></th>
-                                    <td>Food</td>
-                                    <td>150</td>
-                                    <td>AED</td>
-                                    <td>Robert</td>
-                                    <td>12:00, 10 NOV 2018</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"><b>George</b></th>
-                                    <td>Transport</td>
-                                    <td>35</td>
-                                    <td>AED</td>
-                                    <td>George</td>
-                                    <td>14:00, 10 NOV 2018</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"><b>Jessica</b></th>
-                                    <td>Food</td>
-                                    <td>650</td>
-                                    <td>AED</td>
-                                    <td>Jessica</td>
-                                    <td>15:00, 10 NOV 2018</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"><b>Robert</b></th>
-                                    <td>Food</td>
-                                    <td>150</td>
-                                    <td>AED</td>
-                                    <td>Robert</td>
-                                    <td>12:00, 10 NOV 2018</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"><b>George</b></th>
-                                    <td>Transport</td>
-                                    <td>35</td>
-                                    <td>AED</td>
-                                    <td>George</td>
-                                    <td>14:00, 10 NOV 2018</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"><b>Jessica</b></th>
-                                    <td>Food</td>
-                                    <td>650</td>
-                                    <td>AED</td>
-                                    <td>Jessica</td>
-                                    <td>15:00, 10 NOV 2018</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"><b>Robert</b></th>
-                                    <td>Food</td>
-                                    <td>150</td>
-                                    <td>AED</td>
-                                    <td>Robert</td>
-                                    <td>12:00, 10 NOV 2018</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"><b>George</b></th>
-                                    <td>Transport</td>
-                                    <td>35</td>
-                                    <td>AED</td>
-                                    <td>George</td>
-                                    <td>14:00, 10 NOV 2018</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"><b>Jessica</b></th>
-                                    <td>Food</td>
-                                    <td>650</td>
-                                    <td>AED</td>
-                                    <td>Jessica</td>
-                                    <td>15:00, 10 NOV 2018</td>
-                                </tr>
-
+                                {% endfor %}
                             </tbody>
                         </table>
                     </div>

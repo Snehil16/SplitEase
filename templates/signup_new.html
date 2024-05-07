@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/templatemo-style.css') }}">
+    <link rel="icon" type="image/png" href="static/img/favicon.ico">
 </head>
 <body id="reportsPage">
     <div id="home">
@@ -25,10 +26,19 @@
                 <div class="col-12 col-md-8">
                     <div class="tm-bg-primary-dark tm-block tm-block-settings">
                         <h2 class="tm-block-title">Sign Up for an Account</h2>
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                            {% if messages %}
+                                {% for category, message in messages %}
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ message }}
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
                         <form action="{{ url_for('signup') }}" method="POST" class="tm-signup-form row">
                             <div class="form-group col-lg-6">
                                 <label for="name">Account Name</label>
-                                <input id="name" name="username" type="text" class="form-control validate" required>
+                                <input id="name" name="name" type="text" class="form-control validate" required>
                             </div>
                             <div class="form-group col-lg-6">
                                 <label for="email">Account Email</label>

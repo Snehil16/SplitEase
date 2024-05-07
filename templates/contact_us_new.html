@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Split Ease - Contact Us</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+    <link rel="icon" type="image/png" href="static/img/favicon.ico">
     <link rel="stylesheet" href="static/css/fontawesome.min.css">
     <link rel="stylesheet" href="static/css/bootstrap.min.css">
     <link rel="stylesheet" href="static/css/templatemo-style.css">
@@ -71,7 +72,16 @@
     <div class="container mt-5">
         <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
             <h2 class="tm-block-title">Contact the Admins</h2>
-            <form action="/send-message" method="POST" class="tm-signup-form row">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                  {% if messages %}
+                      {% for category, message in messages %}
+                          <div class="alert alert-danger" role="alert">
+                              {{ message }}
+                          </div>
+                      {% endfor %}
+                  {% endif %}
+              {% endwith %}
+            <form action="{{url_for('contactus')}}" method="POST" class="tm-signup-form row">
                 <div class="form-group col-lg-6">
                     <label for="name">Your Name:</label>
                     <input type="text" id="name" name="name" required class="form-control validate"><br>
