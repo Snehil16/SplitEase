@@ -66,6 +66,10 @@ def home():
 
 
 @app.route("/", methods=["GET", "POST"])
+def landing():
+    return render_template("landing.html")
+
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
